@@ -33,14 +33,14 @@ class MainActivity : AppCompatActivity() {
 
             runBlocking (Dispatchers.IO){
                 kotlin.runCatching {
-                    userService.getUser("lifeistech")
+                    userService.getUser("reirei0709")
                 }
             }.onSuccess {
                 avaterImageView.load(it.avatarUrl)
                 nameTextView.text = it.name
                 userIdTextView.text = it.userId
-                followingTextView.text = it.following.toString()
-                followeredTextView.text = it.followers.toString()
+                followingTextView.text = "following "+it.following.toString()
+                followeredTextView.text = "follwered "+it.followers.toString()
             }.onFailure {
                 Toast.makeText(this,"失敗",Toast.LENGTH_LONG).show()
             }
